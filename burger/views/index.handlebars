@@ -1,0 +1,50 @@
+<img src= "./public/assets/burger.jpg" style= "height: 12rem; width:12rem; display:block; margin: auto;">
+    <h1 style= "text-align: center">Eat-Da-Burger!<h1>
+	<div class = "row">
+
+		<div class="col-4">
+<div class="card" style="width: 15rem; length:10rem; margin: auto;">
+  <ul class="list-group list-group-flush">
+    <ul class="list-group-item" style="font-size: 14px;" id="burgerAdded">
+    {{#each burger}}
+    {{#unless devoured}}
+      {{> burgers/burger-block devoured=true}}
+    {{/unless}}
+  {{/each}}
+  <li>
+	{{burger_name}}
+    <button type="button" id="devour-button"data-id="{{id}}" data-newState="{{devoured}}" class="btn btn-success btn-sm">Devour It!</button>
+  <li>
+  </ul>
+    
+  </ul>
+</div>
+</div>
+<div class="col-4">
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Enter Burger Name" aria-label="Recipient's username" aria-describedby="button-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-success" type="button" id="button-addon2">Add it!</button>
+  </div>
+</div>
+
+</div>
+
+<div class="col-4">
+<div class="card" style="width: 15rem; length:10rem; margin: auto">
+  <ul class="list-group list-group-flush">
+    <ul class="list-group-item;"style="font-size: 14px;">{{#each burgers}}
+    {{#if devoured}}
+      {{> burgers/burger-block devoured=false}}
+    {{/if}}
+  {{/each}}
+  <li>{{burger_name}}<li>
+  </ul>
+    
+    
+  </ul>
+</div>
+</div>
+
+</div>
