@@ -5,15 +5,15 @@
 		<div class="col-4">
 <div class="card" style="width: 15rem; length:10rem; margin: auto;">
   <ul class="list-group list-group-flush">
-    <ul class="list-group-item" style="font-size: 14px;" id="burgerAdded" >
+    <ul class="list-group-item" style="font-size: 14px;"  >
+  <li name="name" id="burgerAdded">
     {{#each burger}}
     {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
+      {{this.id}}-{{this.burger_name}}
     {{/unless}}
   {{/each}}
-  <li name="name">
-	{{burger_name}}
-    <button type="button" id="devour-button"data-id="{{id}}" data-newState="{{devoured}}" class="btn btn-success btn-sm">Devour It!</button>
+	
+    <button type="button" id="devour-button"data-id="{{this.id}}" data-newState="{{devoured}}" class="btn btn-success btn-sm">Devour It!</button>
   <li>
   </ul>
     
@@ -34,12 +34,14 @@
 <div class="col-4">
 <div class="card" style="width: 15rem; length:10rem; margin: auto">
   <ul class="list-group list-group-flush">
-    <ul class="list-group-item;"style="font-size: 14px;">{{#each burgers}}
+    <ul class="list-group-item;"style="font-size: 14px;">
+  <li>
+      {{#each burgers}}
     {{#if devoured}}
-      {{> burgers/burger-block devoured=false}}
+      {{this.id}}-{{this.burger_name}}
     {{/if}}
   {{/each}}
-  <li>{{burger_name}}<li>
+  </li>
   </ul>
     
     

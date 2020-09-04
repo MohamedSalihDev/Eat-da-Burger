@@ -3,7 +3,7 @@ const router = express.Router();
 const burger = require("../models/burger.js");
 
 router.get("/", function(req, res) {
-    burger.all(function(data) {
+    burger.selectAll(function(data) {
       const hbsObject = {
         burgers: data
       };
@@ -13,7 +13,7 @@ router.get("/", function(req, res) {
   });
   
   router.post("/api/burgers", function(req, res) {
-    burger.create(["burger_name"], [req.body.name], function(result) {
+    burger.insertOne(["burger_name"], [req.body.name], function(result) {
       // Send back the ID of the new quote
       res.json({ id: result.insertId });
     });
@@ -24,7 +24,7 @@ router.get("/", function(req, res) {
   
     console.log("condition", condition);
   
-    burgers.update(
+    burger.updateOne(
       {
         devoured: req.params.devoured
       },
@@ -39,6 +39,7 @@ router.get("/", function(req, res) {
       }
     );
   });
+  
   
   // Export routes for server.js to use.
   module.exports = router;
