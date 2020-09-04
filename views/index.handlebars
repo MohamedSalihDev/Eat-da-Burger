@@ -1,21 +1,17 @@
-<img src= "./public/assets/burger.jpg" style= "height: 12rem; width:12rem; display:block; margin: auto;">
+<img src= "C:/Users/MOHAMED/projects/homework11/public/assets/burger.jpg" style= "height: 12rem; width:12rem; display:block; margin: auto;">
     <h1 style= "text-align: center">Eat-Da-Burger!<h1>
 	<div class = "row">
 
 		<div class="col-4">
-<div class="card" style="width: 15rem; length:10rem; margin: auto;">
+<div class="card" style="width: 15rem; height:10rem; margin: auto;">
   <ul class="list-group list-group-flush">
-    <ul class="list-group-item" style="font-size: 14px;"  >
-  <li name="name" id="burgerAdded">
+    <li class="list-group-item" style="font-size: 14px;" name="name" id="burgerAdded">
     {{#each burger}}
     {{#unless devoured}}
       {{this.id}}-{{this.burger_name}}
     {{/unless}}
   {{/each}}
-	
     <button type="button" id="devour-button"data-id="{{this.id}}" data-newState="{{devoured}}" class="btn btn-success btn-sm">Devour It!</button>
-  <li>
-  </ul>
     
   </ul>
 </div>
@@ -23,9 +19,9 @@
 <div class="col-4">
 
 <div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Enter Burger Name" aria-label="Recipient's username" aria-describedby="button-addon2">
+  <input type="text" class="form-control" placeholder="Enter Burger Name">
   <div class="input-group-append">
-    <button class="btn btn-success" type="button" id="button-addon2">Add it!</button>
+    <button class="btn btn-success" type="submit" id="button-addon2">Add it!</button>
   </div>
 </div>
 
@@ -34,15 +30,13 @@
 <div class="col-4">
 <div class="card" style="width: 15rem; length:10rem; margin: auto">
   <ul class="list-group list-group-flush">
-    <ul class="list-group-item;"style="font-size: 14px;">
-  <li>
+    <li class="list-group-item;"style="font-size: 14px;" >
       {{#each burgers}}
     {{#if devoured}}
       {{this.id}}-{{this.burger_name}}
     {{/if}}
   {{/each}}
   </li>
-  </ul>
     
     
   </ul>

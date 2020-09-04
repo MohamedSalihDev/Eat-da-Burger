@@ -21,7 +21,7 @@ $(function() {
       );
     });
   
-    $(".form-control").on("submit", function(event) {
+    $("#button-addon2").on("click", function(event) {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
   
